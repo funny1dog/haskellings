@@ -1,5 +1,3 @@
--- I AM NOT DONE
-
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -41,15 +39,15 @@ not True = False
 -- This should take any boolean value and return True!
 -- (There are two easy ways to do this, try both!)
 trueSink :: Bool -> Bool
-trueSink = ???
+trueSink _ = True
 
 -- This should take any boolean value and return False!
 falseSink :: Bool -> Bool
-falseSink = ???
+falseSink _ = False
 
 -- Return True if and only if all three inputs are true.
 tripleAnd :: Bool -> Bool -> Bool -> Bool
-tripleAnd = ???
+tripleAnd a b c = a && b && c
 
 -- Take two lists. Remove the first element from each list and add them together.
 -- The first output should be like the first list except with this new sum at the
@@ -57,7 +55,7 @@ tripleAnd = ???
 -- original second input.
 -- addToFirstList [1, 2] [9, 8] = ([10, 2], [8])
 addToFirstList :: [Int] -> [Int] -> ([Int], [Int])
-addToFirstList = ???
+addToFirstList a b = ((head a + head b) : tail a, tail b)
 
 -- Testing Code
 main :: IO ()

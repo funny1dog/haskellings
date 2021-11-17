@@ -1,4 +1,3 @@
--- I AM NOT DONE
 
 import Data.Char (toUpper, toLower)
 import Test.Tasty
@@ -40,16 +39,16 @@ import Test.Tasty.HUnit
 -- Add the heads of the two inputs together. Return this as the first element
 -- of the tuple. Then you should also return the tail of each list.
 addHeads :: ([Int], [Int]) -> (Int, [Int], [Int])
-addHeads = ???
+addHeads (a, b) = (head a + head b, tail a, tail b)
 
 -- Produce a new tuple containing the three *second* elements of each of
 -- the input tuples.
 takeSeconds :: (Int, Int) -> (Int, Int) -> (Int, Int) -> (Int, Int, Int)
-takeSeconds = ???
+takeSeconds a b c = (snd a, snd b, snd c)
 
 -- Capitalize each of the two characters.
 capitalize :: (Char, Char) -> (Char, Char)
-capitalize = ???
+capitalize (a, b)  = (toUpper a, toUpper b)
 
 -- Testing Code, You can ignore this:
 main :: IO ()

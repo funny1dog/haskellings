@@ -1,4 +1,3 @@
--- I AM NOT DONE
 
 import Test.Tasty
 import Test.Tasty.HUnit
@@ -36,13 +35,15 @@ add5 = (+) 5
 
 -- TODO: Define this function, like the example above.
 multiplyBy6 :: Int -> Int
-multiplyBy6 = undefined
+multiplyBy6 = (*) 6
 
 -- TODO: Define your own operator, (%=%)!
 -- This should take two integers and produce another integer.
 -- It should multiply the inputs together, subtract the second from the first,
 -- and then add the result. 
 -- 5 %=% 6 = 29
+(%=%) :: Int -> Int -> Int
+(%=%) a b = a * b + (a - b)
 
 -- Testing Code
 main :: IO ()
