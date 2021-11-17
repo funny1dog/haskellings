@@ -1,5 +1,3 @@
--- I AM NOT DONE
-
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -31,7 +29,9 @@ sumList xs = sumListTail xs 0 -- < Initial accumulator is 0
 -- Write a tail-recursive function to reverse the list!
 -- (Note: In real code, you can rely on the 'reverse' library function)
 reverseList :: [a] -> [a]
-reverseList = ???
+reverseList [] = []
+reverseList [a] = [a]
+reverseList (a:as) = reverseList as ++ [a]
 
 -- Given a list, return a tuple of two sub-lists.
 -- The first is the "even" elements like you did in the last exercise!
@@ -39,7 +39,13 @@ reverseList = ???
 -- Do this tail recursively!
 -- evenOdds [1, 5, 7, 0, 3, 2, 2, 3] = ([5, 0, 2, 3], [1, 7, 3, 2])
 evenOdds :: [a] -> ([a], [a])
-evenOdds = ???
+evenOdds [] = ([], [])
+evenOdds [a] = ([], [a])
+evenOdds (a:b:as) = 
+  let
+    c = evenOdds as
+  -- in (a : fst c, b : snd c)
+  in Data.Bifunctor.bimap (a :) (b :) c
 
 main :: IO ()
 main = defaultMain $ testGroup "Recusion3" $

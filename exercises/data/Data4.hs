@@ -1,5 +1,3 @@
--- I AM NOT DONE
-
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -63,12 +61,15 @@ adult2 = Adult "Jane" "Smith" 39 Engineer
 -- Return a tuple with the 2nd and 3rd elements of the list.
 -- If there are fewer than 3 elements, return Nothing.
 secondAndThird :: [Int] -> Maybe (Int, Int)
-secondAndThird = undefined
+secondAndThird (a:b:c:_) = Just (b, c)
+secondAndThird _ = Nothing
+
 
 -- Like above, but if there aren't enough elements, return a String saying:
 -- "Only {x} element(s) in the list"
 secondAndThird' :: [Int] -> Either String (Int, Int)
-secondAndThird' = undefined
+secondAndThird' (a:b:c:_) = Right (b, c)
+secondAndThird' a = Left "Only " ++ show (len a) ++ " element(s) in the list"
 
 -- Testing Code
 main :: IO ()

@@ -28,26 +28,25 @@ doubleIfOdd x = if mod x 2 == 1
 -- There is no "elif" like in Python. To add additional branches, make another
 -- "if" statement in the "else" branch.
 multiplicationFunc :: Int -> Int
-multiplicationFunc x = if mod x 3 == 0
-  then x * 3
-  else if mod x 3 == 1
-    then x * 6
-    else x * 8
+multiplicationFunc x 
+  | mod x 3 == 0 = x * 3
+  | mod x 3 == 1 = x * 6
+  | otherwise = x * 8
 
 -- TODO: Fill in these functions!
 -- Of the two inputs, return how many are "True"
 countTrue :: Bool -> Bool -> Int
-countTrue b1 b2 = if b1 then 
-  (if b2 then 2 else 1)
-  else (if b2 then 1 else 0)
+countTrue b1 b2 
+  | b1 = if b2 then 2 else 1
+  | b2 = 1
+  | otherwise = 0
 
 -- What is the type signature of this function?
 evalInput :: Int -> [Int] -> Double
-evalInput x myList = if x == 0
-  then 1.0
-  else if head myList == 0
-    then 2.5
-    else 3.5
+evalInput x myList 
+  | x == 0 = 1.0
+  | head myList == 0 = 2.5
+  | otherwise = 3.5
 
 -- The following will not work, since the "else" branch has a different type.
 -- TODO: Try uncommenting this when you're finished and check that it

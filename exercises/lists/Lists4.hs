@@ -1,5 +1,3 @@
--- I AM NOT DONE
-
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -27,13 +25,13 @@ zip [1, 2, 3] ["Hi", "Bye"] = [(1, "Hi"), (2, "Bye")]
 -- return tuples containing the sum, product, and difference of each pair.
 -- sumProductDifference [4, 3] [1, 2] = [(5, 4, 3), (5, 6, 1)]
 sumProductDifference :: [Int] -> [Int] -> [(Int, Int, Int)]
-sumProductDifference = ???
+sumProductDifference a b = [(x + y, x * y, x - y) | (x, y) <- zip(a, b)]
 
 -- Given a list of strings, make a new list where each String has been
 -- appended with its index within the list.
 -- addIndices ["Hello", "Bye"] = ["Hello0", "Bye1"]
 addIndices :: [String] -> [String]
-addIndices = ???
+addIndices a = [x ++ show n | (x, n) <- zip(a, [0,1..])]
 
 main :: IO ()
 main = defaultMain $ testGroup "Lists4" $

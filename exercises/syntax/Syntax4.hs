@@ -1,5 +1,3 @@
--- I AM NOT DONE
-
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -41,10 +39,19 @@ evalList mylist = case myList of
 -- If there are at least 4 elements, return 4.
 --
 -- If the boolean is set as False, then we care about the
--- sum of the first elements. But if there are at least 4 elements,
+-- sum of the first several elements(up through 3). But if there are at least 4 elements,
 -- you can simply return 10.
 evalList :: Bool -> [Int] -> Int
-evalList = ???
+evalList True [] = 0
+evalList True [a] = 1
+evalList True [a, b] = 2
+evalList True [a, b, c] = 3 
+evalList True a = 4
+evalList False [] = 0
+evalList False [a] = a
+evalList False [a, b] = a + b
+evalList False [a, b, c] = a + b + c
+evalList False a = 10
 
 -- Testing Code
 main :: IO ()

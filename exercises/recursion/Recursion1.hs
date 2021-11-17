@@ -1,5 +1,3 @@
--- I AM NOT DONE
-
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -48,7 +46,7 @@ quotient dividend divisor = if dividend < divisor
 -- factorial 3 = 6 -- (1 * 2 * 3)
 -- ...
 factorial :: Int -> Int
-factorial = ???
+factorial a = if a <= 1 then 1 else a * factorial (a - 1)
 
 -- Calculate the 'specialDistance' to 1, according to these rules:
 -- The distance from 1 to itself is 0
@@ -57,7 +55,11 @@ factorial = ???
 -- If the input n is odd, add 1 to the distance to 3n + 1.
 --  NOTE: The actual library function for integer division is 'quot'.
 specialDistance :: Word -> Word
-specialDistance = ???
+specialDistance a 
+ | a == 1 = 0
+ | a == 0 = 1
+ | mod a 2 == 1 = quot n 2
+ | otherwise = 3 * n + 1
 
 main :: IO ()
 main = defaultMain $ testGroup "Recusion1" $

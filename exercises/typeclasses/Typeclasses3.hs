@@ -1,5 +1,3 @@
--- I AM NOT DONE
-
 import Data.List (sort)
 
 import Test.Tasty

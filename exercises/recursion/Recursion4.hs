@@ -1,5 +1,3 @@
--- I AM NOT DONE
-
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -49,12 +47,13 @@ l4 = 5 : l3
 -- The second should be called 'ValueNode'. It should contain an 'Int' which
 -- is the value at the node, and then it should have a 'left' and a 'right' subtree,
 -- which will be recursive BinaryTree elements.
-data BinaryTree = BinaryTree
+data BinaryTree = EmptyNode | ValueNode Int left right
 
 -- Take the sum of all the values in a BinaryTree!
 -- You'll need to make multiple recursive calls at once!
 sumTree :: BinaryTree -> Int
-sumTree = ???
+sumTree (EmptyNode a) = 0
+sumTree (ValueNode a b c) = a + sumTree b + sumTree c
 
 -- Determine if your tree is a valid Binary Search Tree (BST)
 -- For every ValueNode in the tree:
@@ -62,7 +61,11 @@ sumTree = ???
 --   2. All elements in its right subtree are larger than the value at the node.
 -- You might want a helper that takes two 'bounding' elements in addition to a subtree.
 isValidBst :: BinaryTree -> Bool
-isValidBst = ???
+isValidBst (EmptyNode a) = True
+isValidBst (ValueNode a (EmptyNode _) (EmptyNode _)) = True
+isValidBst (ValueNode a (ValueNode b c d) (EmptyNode _)) = a > b && isValidBst (ValueNode b c d)
+isValidBst (ValueNode a (ValueNode b c d) (ValueNode e f g)) = a > b && isValidBst (ValueNode b c d) && a < e && isValidBst (ValueNode e f g)
+isValidBst (ValueNode a (EmptyNode _) (ValueNode b c d)) = a < b && isValidBst (ValueNode b c d)
 
 tree1 :: BinaryTree
 tree1 = ValueNode 8

@@ -36,7 +36,8 @@ double = (*) 2
 -- Then we make a function that makes a new list which doubles every
 -- element of its input.
 doubleList :: [Int] -> [Int]
-doubleList xs = map double xs
+-- doubleList xs = map double xs
+doubleList = map double
 -- We could also just do: map ((*) 2) xs
 -- With **lambda** syntax, we would have: map (\x -> 2 * x) xs
 
@@ -44,11 +45,13 @@ doubleList xs = map double xs
 
 -- Flip the boolean value of each input
 flipBools :: [Bool] -> [Bool]
-flipBools input = map not input
+-- flipBools input = map not input
+flipBools = map not
 
 -- Uppercase all the letters in this word!
 capitalizeWord :: String -> String
-capitalizeWord input = map toUpper input
+-- capitalizeWord input = map toUpper input
+capitalizeWord = map toUpper
 
 -- TODO: Create your own higher order function, doubleAndApply.
 -- The input function should take a single integer

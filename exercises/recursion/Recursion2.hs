@@ -1,5 +1,3 @@
--- I AM NOT DONE
-
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -37,16 +35,19 @@ sumList (a : as) = a + sumList as -- < RECURSIVE CASE
 
 -- TODO: Solve these recursion problems involving lists!
 
--- Take only the numbers of the input that are equal to "2 mod 3" (2, 5, 8, etc.)
+-- Take only the numbers of the input x that "x mod 3" == 2, like 2, 5, 8, etc.
 -- Then add 3 to each of them!
--- addMod3Is2 [2, 3, 4, 8] = [5, 10]
+-- addMod3Is2 [2, 3, 4, 8] = [5, 11]
 addMod3Is2 :: [Int] -> [Int]
-addMod3Is2 = ???
+addMod3Is2 [] = []
+addMod3Is2 (a:as) = if a mod 3 == 2 then (a + 3) : addMod3Is2 as else addMod3Is2 as
 
 -- Take only the 'even' index elements of the list (the second, fourth, sixth, etc.)
 -- evens [1, 5, 7, 0, 3, 2, 2, 3] = [5, 0, 2, 3]
 evens :: [Int] -> [Int]
-evens = ???
+evens [] = []
+evens [a] = []
+evens (a:b:as) = b : evens as
 
 main :: IO ()
 main = defaultMain $ testGroup "Recusion2" $

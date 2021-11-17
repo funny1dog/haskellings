@@ -36,13 +36,25 @@ example list1
 
 -- Rewrite 'countTrue', except this it takes 3 inputs, so use guards!
 countTrue :: Bool -> Bool -> Bool -> Int
-countTrue = ???
+-- countTrue a b c = if a then (if b then (if c then 3 else 2) else (if c then 2 else 1)) else (if b then (if c then 1 else 0) else (if c then 1 else 0))
+countTrue a b c 
+  | a = if b then (if c then 3 else 2) else (if c then 2 else 1)
+  | b = if c then 1 else 0
+  | c = 1
+  | otherwise = 0
 
 -- Return a string representation of the (positive) input number,
 -- from 0 = "Zero" up through 5 = "Five".
 -- If it's larger than 5, return "Too many!"
 numberString :: Word -> String
-numberString = ???
+numberString a
+  | a == 0 = "Zero"
+  | a == 1 = "One"
+  | a == 2 = "Two"
+  | a == 3 = "Three"
+  | a == 4 = "Four"
+  | a == 5 = "Five"
+  | otherwise = "Too many!"
 
 -- Testing Code
 main :: IO ()

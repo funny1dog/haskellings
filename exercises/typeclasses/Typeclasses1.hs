@@ -1,5 +1,3 @@
--- I AM NOT DONE
-
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -27,7 +25,8 @@ sumsEqual (a, b) (c, d) = a + b == c + d
 -- The input itself is a lowercase "variable" in the type signature and
 -- we separate the constraint on that type using `=>`
 equalMessages :: (Eq a) => a -> a -> String
-equalMessages x y = if x == y
+equalMessages x y = 
+  if x == y
   then "Equal!"
   else "Not equal!"
 
@@ -51,23 +50,32 @@ objectMessage obj = "Object is: " ++ show obj
 -- TODO: Define instances of 'Show' and 'Eq' for these types and then fill in
 --       'equalMessage' function so they tests can use it on the types.
 
-data Occupation = Lawyer | Programmer | Engineer | Doctor | Manager | Teacher
+data Occupation = 
+  Lawyer 
+  | Programmer 
+  | Engineer 
+  | Doctor 
+  | Manager 
+  | Teacher
+  deriving (Show, Eq)
 
 data Person =
-  Adult String String Int Occupation |
-  Child String Int Int
+  Adult String String Int Occupation 
+  | Child String Int Int
+  deriving (Show, Eq)
 
 -- A 'newtype' can also have typeclass instances!
 -- (Basic type synonyms cannot)
-newtype InterestRate = InterestRate Double
+newtype InterestRate = InterestRate Double deriving Show
 
 -- equalMessage should compare two objects of the same type.
 -- If they are the same, it should return "Objects are both '{x}'!"
 --   (where {x} is replaced by the "show" instance for the input object, keep the apostrophes)
 -- If they are not equal, return "Objects '{x}' and '{y}' are not equal!"
 -- Include a type signature!
-equalMessage :: ???
-equalMessage = undefined
+equalMessage :: Person -> Person -> Bool
+equalMessage a b = show a == show b
+  -- if objectMessage a == objectMessage b then True else False
 
 -- Testing Code
 

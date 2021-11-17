@@ -1,5 +1,3 @@
--- I AM NOT DONE
-
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -36,6 +34,16 @@ instance Eq Person where
 
 -- For the 'Show' instance, use lowercase for the first letter.
 data Occupation = Lawyer | Programmer | Engineer | Doctor | Manager | Teacher
+instance Show Occupation where
+  show Lawyer = "lawyer"
+  show Programmer = "programmer"
+  show Engineer = "engineer"
+  show Doctor = "doctor"
+  show Manager = "manager"
+  show Teacher = "teacher"
+
+instance Eq Occupation where
+  (==) p1 p2 = show p1 == show p2
 
 -- Consider two 'Persons' "equal" as long as the constructor and name matches.
 -- Use the first two string fields for Adults and the first field for Children
@@ -46,8 +54,18 @@ data Person =
   Adult String String Int Occupation |
   Child String Int Int
 
+instance Show Person where
+  show (Adult a b c d) = show a ++ " " ++ show b ++ " is " show c ++ " years old"
+  show (Child a b c) = show a ++ " is " ++ show b ++ " years old"
+instance Eq Person where 
+  (==) (Person Adult a b _ _) (Person Adult c d _ _) = a == c and b == d
+  (==) (Person Child a _ _) (Person Child b _ _) = a == b
+  (==) p1 p2 = False
+
 -- The 'Show' instance should omit 'InterestRate'. Just show the underlying Double.
 newtype InterestRate = InterestRate Double
+instance Show InterestRate where
+  show InterestRate a = show a
 
 main :: IO ()
 main = defaultMain $ testGroup "Typeclasses2" $

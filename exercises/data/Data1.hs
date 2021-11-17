@@ -1,7 +1,5 @@
 module Data1 where
 
--- I AM NOT DONE
-
 {-
 
 - In Haskell we can define our own data types with the 'data' keyword. We use that,
@@ -21,16 +19,19 @@ data Person = Person String Int
 -- TODO:
 
 -- Define two types, where the constructor's name matches the type name.
+
 -- First, define "Adult", which will have 4 fields:
 -- A first name (String)
 -- A last name (String)
 -- An age (Int)
 -- A job (String)
+data Adult = Adult String String Int String
 
 -- Second, define "Child", which will have 3 fields:
 -- A first name (String)
 -- An age (Int)
 -- A "grade" level (Int)
+data Child = Child String Int Int
 
 adult1 :: Adult
 adult1 = Adult "John" "Smith" 45 "Lawyer"

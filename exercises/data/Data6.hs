@@ -1,5 +1,3 @@
--- I AM NOT DONE
-
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -58,10 +56,10 @@ newtype Username = Username { unUsername :: String }
 --       Turn these type synonyms into newtypes so they cause compilation errors.
 --       Then fix the errors!
 
-type Slope = Double
-type Intercept = Double
-type XCoordinate = Double
-type YCoordinate = Double
+type Slope = Slope Double
+type Intercept = Intercept Double
+type XCoordinate = XCoordinate Double
+type YCoordinate = YCoordinate Double
 
 -- NOTE: Add this line after the 'YCoordinate' newtype declaration:
 --
@@ -85,7 +83,7 @@ expectedY1 :: YCoordinate
 expectedY1 = -10.0
 
 calculateY :: Slope -> Intercept -> XCoordinate -> YCoordinate
-calculateY intercept slope x = slope * x + intercept
+calculateY slope intercept x = slope * x + intercept
 
 -- Change these to account for newtypes!
 x2 :: XCoordinate

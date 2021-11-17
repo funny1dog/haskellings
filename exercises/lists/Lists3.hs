@@ -1,5 +1,3 @@
--- I AM NOT DONE
-
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -50,12 +48,13 @@ shortWords = ["HELLO", "BYE", "CIAO"]
 
 -- Implement addMod3Is2, except now use a list comprehension.
 addMod3Is2 :: [Int] -> [Int]
-addMod3Is2 = ???
+addMod3Is2 a = [x + 3 | x <- a, x mod 3 == 2]
 
 -- Take every pairwise product of the numbers, as long as their
 -- sum is less than 30.
 smallPairwiseProducts :: [Int] -> [Int] -> [Int]
-smallPairwiseProducts = ???
+-- smallPairwiseProducts a b = [x * y | (x, y) <- zip(a, b), x * y < 30]
+smallPairwiseProducts a b = [x * y | x <- a, y <- b, x * y < 30]
 
 main :: IO ()
 main = defaultMain $ testGroup "Lists3" $
