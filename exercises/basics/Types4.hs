@@ -36,4 +36,4 @@ unsignedInts = [1, 2, 3]
 -- TODO: Lists cannot have elements of different types!
 --       Fix this list below.
 mixedList :: [Int]
-mixedList = [2, 3, 5, 6.7]
+mixedList = [2, 3, 5, 6]

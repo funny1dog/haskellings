@@ -55,7 +55,7 @@ adult1 = Adult
 
 -- However, you can also use the old way, without the field names.
 adult2 :: Adult
-adult2 = Adult "Jane" "Smith" 39 "Engineer"
+adult2 = Adult ("Jane" "Smith" 39 "Engineer")
 
 child1 :: Child
 child1 = Child
@@ -65,4 +65,4 @@ child1 = Child
   }
 
 child2 :: Child
-child2 = Child "Stephanie" 12 6
+child2 = Child ("Stephanie" 12 6)

@@ -40,15 +40,15 @@ badSum x y z = prod1 + prod2 + prod3 + prod4
 
 -- Take the sum of each pairwise product of inputs.
 sumPairProducts :: (Int, Int, Int, Int, Int, Int) -> Int
-sumPairProducts (a, b, c, d, e, f, g, i) = 
+sumPairProducts (a, b, c, d, e, f) = 
   let
-    sum1 = b + c + d + e + f + g + i
+    sum1 = b + c + d + e + f
     sum2 = sum1 - b
     sum3 = sum2 - c
     sum4 = sum3 - d
     sum5 = sum4 - e
     sum6 = sum5 - f
-  in a * sum1 + b * sum2 + c * sum3 + d * sum4 + e * sum5 + f * sum6 + g * i
+  in a * sum1 + b * sum2 + c * sum3 + d * sum4 + e * sum5 + f * sum6
 
 -- Take the sum of corresponding elements of the tuples, but only include each
 -- pair when the corresponding bool is true.

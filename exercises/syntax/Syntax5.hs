@@ -52,9 +52,9 @@ badSum x y z = prod1 + prod2 + prod3 + prod4
 
 -- Take the sum of each pairwise product of inputs.
 sumPairProducts :: (Int, Int, Int, Int, Int, Int) -> Int
-sumPairProducts (a, b, c, d, e, f, g, i) = a * sum1 + b * sum2 + c * sum3 + d * sum4 + e * sum5 + f * sum6 + g * i
+sumPairProducts (a, b, c, d, e, f) = a * sum1 + b * sum2 + c * sum3 + d * sum4 + e * sum5 + f * sum6 
   where
-    sum1 = b + c + d + e + f + g + i
+    sum1 = b + c + d + e + f
     sum2 = sum1 - b
     sum3 = sum2 - c
     sum4 = sum3 - d

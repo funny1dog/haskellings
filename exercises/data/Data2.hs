@@ -40,8 +40,6 @@ data Occupation =
 -- Take your two types from the last part and combine them into a single
 -- 'Person' type with two constructors. Now use your new "Occupation" type
 -- for the Adult's job instead of a string.
-data Adult = Adult String String Int String
-data Child = Child String Int Int
 data Person =
   Adult String String Int Occupation |
   Child String Int Int
@@ -61,7 +59,7 @@ child2 = Child "Stephanie" 12 6
 -- For adults, return their first and last name appended, with a space in between.
 -- For children, just return their first name.
 giveFullName :: Person -> String
-giveFullName (Adult a b _ _) = a + b 
+giveFullName (Adult a b _ _) = a ++ " " ++ b 
 giveFullName (Child a _ _ ) = a
 
 -- Testing Code

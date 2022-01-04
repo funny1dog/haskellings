@@ -56,10 +56,10 @@ newtype Username = Username { unUsername :: String }
 --       Turn these type synonyms into newtypes so they cause compilation errors.
 --       Then fix the errors!
 
-type Slope = Slope Double
-type Intercept = Intercept Double
-type XCoordinate = XCoordinate Double
-type YCoordinate = YCoordinate Double
+newtype Slope = Slope Double
+newtype Intercept = Intercept Double
+newtype XCoordinate = XCoordinate Double
+newtype YCoordinate = YCoordinate Double
 
 -- NOTE: Add this line after the 'YCoordinate' newtype declaration:
 --

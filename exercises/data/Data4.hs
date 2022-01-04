@@ -50,26 +50,27 @@ data Occupation =
 
 -- TODO: Change this type so that the last field (occupation) is *parameterized*.
 --       Examples down below will variously use 'String' or the 'Occupation' type.
-data Adult = Adult String String Int String
+-- data Occup = Either String Occupation
+-- data Adult = Adult String String Int Occup
 
-adult1 :: Adult String
-adult1 = Adult "John" "Smith" 45 "Lawyer"
+-- adult1 :: Adult
+-- adult1 = Adult ("John" "Smith" 45 "Lawyer")
 
-adult2 :: Adult Occupation
-adult2 = Adult "Jane" "Smith" 39 Engineer
+-- adult2 :: Adult
+-- adult2 = Adult ("Jane" "Smith" 39 Engineer)
 
 -- Return a tuple with the 2nd and 3rd elements of the list.
 -- If there are fewer than 3 elements, return Nothing.
 secondAndThird :: [Int] -> Maybe (Int, Int)
-secondAndThird (a:b:c:_) = Just (b, c)
+secondAndThird (_:b:c:_) = Just (b, c)
 secondAndThird _ = Nothing
 
 
 -- Like above, but if there aren't enough elements, return a String saying:
 -- "Only {x} element(s) in the list"
-secondAndThird' :: [Int] -> Either String (Int, Int)
-secondAndThird' (a:b:c:_) = Right (b, c)
-secondAndThird' a = Left "Only " ++ show (len a) ++ " element(s) in the list"
+secondAndThird' :: [Int] -> Either [Char] (Int, Int)
+secondAndThird' (_:b:c:_) = Right (b, c)
+secondAndThird' a = Left ("Only " ++ show (length a) ++ " element(s) in the list")
 
 -- Testing Code
 main :: IO ()

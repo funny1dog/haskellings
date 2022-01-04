@@ -67,7 +67,7 @@ andPair (b1, b2) = b1 && b2
 
 -- Give this function a type signature to make it compile
 
-andCurried :: Bool
+andCurried :: Bool -> Bool -> Bool
 andCurried = curry andPair
 
 -- Testing Code, You can ignore this:
