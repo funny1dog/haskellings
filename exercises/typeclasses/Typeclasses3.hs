@@ -48,6 +48,9 @@ readAndCompare f input expected = f (read input) == expected
 data Adult1 = Adult1 String String Int
   deriving (Show, Eq)
 
+instance Ord Adult1 Whoever
+  (Ord) (Adult1 a b c) (Adult1 e f g) = if a > e then  
+
 data Adult2 = Adult2 String String Int
   deriving (Show, Eq)
 
